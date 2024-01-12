@@ -1,7 +1,6 @@
 
-import { Box, Center, Input } from "@chakra-ui/react";
-import { login } from "../services/login";
-import { LoginButton } from "./LoginButton";
+import { Box, Center } from "@chakra-ui/react";
+import { LoginForm } from "./LoginForm";
 
 export const Card = () => {
   return(
@@ -11,11 +10,7 @@ export const Card = () => {
           <Center>
             <h1>Faça o login</h1>
           </Center>
-          <Input placeholder="email" />
-          <Input placeholder="password" />
-          <Center>
-            <LoginButton event={login}/>
-          </Center>
+          <LoginForm />
         </Box>
       </Box>
 

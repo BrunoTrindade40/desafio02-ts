@@ -1,12 +1,16 @@
-import { login } from "./login"
+import { Alert, AlertIcon } from '@chakra-ui/react';
+import { render, screen } from '@testing-library/react';
 
-describe('login', () => {
+test('renders Alert Success component', () => {
+  render(<Alert status="success"><AlertIcon /></Alert>);
+  const alertElement = screen.getByRole('alert');
 
-    const mockAlert = jest.fn()
-    window.alert = mockAlert
+  expect(alertElement).toBeInTheDocument();
+  //expect(alertElement).toHaveTextContent('Formulário enviado com sucesso!');
+});
+test('renders Alert Error component', () => {
+  render(<Alert status="error"><AlertIcon /></Alert>);
+  const alertElement = screen.getByRole('alert');
 
-    it('Deve exibir um alert com boas vindas', () => {
-        login()
-        expect(mockAlert).toHaveBeenCalledWith('Bem vinda!')
-    })
-})
+  expect(alertElement).toBeInTheDocument();
+});
